@@ -20,7 +20,7 @@ def menu():
         print(opciones_alerta)                
         eleccion_alertas = input("\nIngrese el número de la opción que desea: ")
         
-        while(eleccion_alertas != "1" and eleccion_alertas != "2" and eleccion_alertas != "3" and eleccion_alertas != "4"):
+        while(eleccion_alertas != "1" and eleccion_alertas != "2" and eleccion_alertas != "3"):
             print(f'\n¡Error!, la opción "{eleccion_alertas}" no es válida. Intente nuevamente')
             print(opciones_alerta)
             eleccion_alertas = input("\nIngrese el número de la opción que desea: ")
