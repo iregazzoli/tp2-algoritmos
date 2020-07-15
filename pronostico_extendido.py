@@ -35,9 +35,9 @@ def mostrar_pronostico(pronostico, ubicacion):
     for zona in pronostico:
         if eliminar_tildes(zona['name'].lower()) in ubicacion[0] and eliminar_tildes(zona['province'].lower()) in ubicacion[1]:
             print(f"Pronostico de {zona['name']},{zona['province']} a {zona['weather']['day']} dias")
-            print(".Temperatura en la mañana: ", zona['weather']['morning_temp'])
+            print(".Temperatura en la mañana: ", zona['weather']['morning_temp'], "°C")
             print(".Pronostico de la mañana: ", zona['weather']['morning_desc'].replace(".",".\n"))
-            print(".Temperatura en la tarde: ", zona['weather']['afternoon_temp'])
+            print(".Temperatura en la tarde: ", zona['weather']['afternoon_temp'], "°C")
             print(".Pronostico de la tarde: ", zona['weather']['afternoon_desc'].replace(".",".\n"))
 
 def pronostico_extendido(): #main
@@ -61,6 +61,6 @@ def pronostico_extendido(): #main
     mostrar_pronostico(dos_dias, ubicacion)
     mostrar_pronostico(tres_dias, ubicacion)
     
-    pause = input("Presione una tecla para continuar...")
+   opcion = input("Para volver al menu principal ingrese 0, para salir presione enter: ")
 
 pronostico_extendido()
