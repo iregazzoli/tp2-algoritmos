@@ -15,6 +15,6 @@ def alertas_nacional(): #main
             print('Zona: ', zona)
         print('\n----------------------------\n')
     
-    pause = input("Presione una tecla para Salir...")
+    opcion = input("Para volver al menu principal ingrese 0, para salir presione enter: ")
 
 alertas_nacional()
