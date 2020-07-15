@@ -15,6 +15,6 @@ def alertas_nacional(): #main
             print('Zona: ', zona)
         print('\n----------------------------\n')
     
-    pause = input("Presione una tecla para continuar...")
+    pause = input("Presione una tecla para Salir...")
 
 alertas_nacional()
