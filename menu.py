@@ -1,54 +1,59 @@
 def menu():
     print("----MENU PRINCIPAL----")
-    opciones_principales = "1) Alertas." \
-                           "\n2) Histórico de temperaturas y humedad de la zona fértil y productora" \
-                           "de la Argentina." \
-                           "\n3) Pronóstico extendido." \
-                           "\n4) Ingresar una imagen de radar para saber si hay alertas." \
-                           "\n5) Salir del programa"
+    opciones_principales = "\n1) Alertas." \
+                         "\n2) Histórico de temperaturas y humedad de la zona fértil y productora de la Argentina." \
+                         "\n3) Pronóstico extendido." \
+                         "\n4) Ingresar una imagen de radar para saber si hay alertas." \
+                         "\n5) Salir del programa"
     print(opciones_principales)
-    eleccion = input("Ingrese el número de la opcion que desea: ")
+    eleccion = input("\nIngrese el número de la opcion que desea: ")
 
-    while(eleccion != "1" and eleccion != "2" and eleccion != "3"
-            and eleccion != "4" and eleccion != "5"):
-        print(f"¡Error!, la opcion {eleccion} no es valida, Intente nuevamente")
+    while(eleccion != "1" and eleccion != "2" and eleccion != "3" and eleccion != "4" and eleccion != "5"):
+        print(f'\n¡Error!, la opción "{eleccion}" no es válida. Intente nuevamente')
         print(opciones_principales)
-        eleccion = input("Ingrese el número de la opcion que desea: ")
+        eleccion = input("\nIngrese el número de la opción que desea: ")
 
     if eleccion == "1":
-            opciones_alerta = "\n1) Alertas en la geolocalizacion actual." \
-                              "\n2) Alertas en una geolocalizacion ingresada manualmente" \
-                              "\n3) Alertas a nivel nacional."
-            eleccion_alertas = input("Ingrese el número de la opción"
-                                     "que desea: ")
+        opciones_alerta = "\n1) Alertas en la geolocalización actual." \
+                        "\n2) Alertas en una geolocalización ingresada manualmente" \
+                        "\n3) Alertas a nivel nacional."
+        print(opciones_alerta)                
+        eleccion_alertas = input("\nIngrese el número de la opción que desea: ")
+        
+        while(eleccion_alertas != "1" and eleccion_alertas != "2" and eleccion_alertas != "3" and eleccion_alertas != "4"):
+            print(f'\n¡Error!, la opción "{eleccion_alertas}" no es válida. Intente nuevamente')
             print(opciones_alerta)
-            while(eleccion_alertas != "1" and eleccion_alertas != "2" and
-                    eleccion_alertas != "3" and eleccion_alertas != "4"):
-                print(f"¡Error!, la opcion {eleccion_alertas} no es valida, Intente nuevamente")
-                print(opciones_alerta)
+            eleccion_alertas = input("\nIngrese el número de la opción que desea: ")
 
-            if eleccion == "1":
-                print("funcion")
-            elif eleccion == "2":
-                print("funcion")
-            elif eleccion == "3":
-                print("funcion")
+        if eleccion_alertas == "1":
+            print("funcion")
+        elif eleccion_alertas == "2":
+            print("funcion")
+        elif eleccion_alertas == "3":
+            print("funcion")
 
     elif eleccion == "2":
-        opciones_t_h = "1) Gráfico con el promedio de temperaturas " \
-                       "anuales de los ultimos 5 años." \
-                       "\n2) Gráfico con el promedio de humedad de los ultimos 5 años." \
-                       "\n3) Milímetros máximos de lluvia de los últimos 5 años." \
-                       "\n4) Temperatura máxima de los últimos 5 años."
-        print(opciones_t_h)
-        eleccion_historico = input("Ingrese el número de la opción que desea: ")
-        while(eleccion_historico != "1" and eleccion_historico != "2"
-                and eleccion_historico != "3" and eleccion_historico != "4"):
-            print(f"¡Error!, la opcion {eleccion_historico} no es valida, Intente nuevamente")
-            print(opciones_t_h)
-            eleccion_historico = input("Ingrese el número de la "
-                                       "opción que desea: ")
+        opciones_historico = "\n1) Gráfico con el promedio de temperaturas anuales de los ultimos 5 años." \
+                     "\n2) Gráfico con el promedio de humedad de los ultimos 5 años." \
+                     "\n3) Milímetros máximos de lluvia de los últimos 5 años." \
+                     "\n4) Temperatura máxima de los últimos 5 años."
+        print(opciones_historico)
+        eleccion_historico = input("\nIngrese el número de la opción que desea: ")
+        
+        while(eleccion_historico != "1" and eleccion_historico != "2" and eleccion_historico != "3" and eleccion_historico != "4"):
+            print(f'\n¡Error!, la opción "{eleccion_historico}" no es válida. Intente nuevamente')
+            print(opciones_historico)
+            eleccion_historico = input("\nIngrese el número de la opción que desea: ")
 
+        if eleccion_historico == "1":
+            print("funcion")
+        elif eleccion_historico == "2":
+            print("funcion")
+        elif oeleccion_historico == "3":
+            print("funcion")
+        elif eleccion_historico == "4":
+            print("funcion")                 
+    
     elif eleccion == "3":
         print("hay que hacer algo")
 
@@ -59,3 +64,5 @@ def menu():
 
 def main():
     menu()
+
+main()    
