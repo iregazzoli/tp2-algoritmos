@@ -3,9 +3,8 @@ import csv
 import pandas as pd
 
 def graficar_temp(data_frame):
-    data_frame["Year"] = data_frame["Date"].apply(lambda x: x[-4:]) #apply le pasas una funcion y le ejecuta a cada elemento de la columna. (es un map pero para cada fila)
-    max_t = data_frame[["Year","Max Temperature"]].groupby("Year",as_index=False).mean() #en el archivo csv hay solo dos posibles anios (2013, 2014), esta linea dice toma la columna "year", "Max/Min Temperature"
-    min_t = data_frame[["Year","Min Temperature"]].groupby("Year",as_index=False).mean() #y con esos dos agrupamelos con groupby segun pertencen a un anio u el otro y despues haceme el promedio
+    max_t = data_frame[["Year","Max Temperature"]].groupby("Year",as_index=False).mean() #groupby lo que hace es agrupar la informacion de la columna "Max/Min temp" segun los valores de la columna "year"
+    min_t = data_frame[["Year","Min Temperature"]].groupby("Year",as_index=False).mean() # en criollo seria agarra las temp agrupalas segun el anio y desp hace el promedio
     plt.plot(max_t["Year"], max_t["Max Temperature"], "r-", label="Max")
     plt.plot(min_t["Year"], min_t["Min Temperature"], "b-", label="Min")
     plt.plot(max_t["Year"], max_t["Max Temperature"], "ro")
@@ -21,7 +20,6 @@ def graficar_temp(data_frame):
     plt.show()
 
 def graficar_hum(data_frame):
-    data_frame["Year"] = data_frame["Date"].apply(lambda x: x[-4:]) #apply le pasas una funcion y le ejecuta a cada elemento de la columna. (es un map pero para cada fila)
     humedad = data_frame[["Year","Relative Humidity"]].groupby("Year",as_index=False).mean()
     plt.plot(humedad["Year"], humedad["Relative Humidity"], "c-", label="Hum")
     plt.plot(humedad["Year"], humedad["Relative Humidity"], "co")
@@ -32,7 +30,6 @@ def graficar_hum(data_frame):
     plt.show()
 
 def graficar_mm(data_frame):
-    data_frame["Year"] = data_frame["Date"].apply(lambda x: x[-4:]) #apply le pasas una funcion y le ejecuta a cada elemento de la columna. (es un map pero para cada fila)
     mm = data_frame[["Year","Precipitation"]].groupby("Year",as_index=False).mean()
     plt.plot(mm["Year"], mm["Precipitation"], "m-", label="mm")
     plt.plot(mm["Year"], mm["Precipitation"], "mo")
@@ -43,7 +40,6 @@ def graficar_mm(data_frame):
     plt.show()
 
 def graficar_temp_max(data_frame):
-    data_frame["Year"] = data_frame["Date"].apply(lambda x: x[-4:]) #apply le pasas una funcion y le ejecuta a cada elemento de la columna. (es un map pero para cada fila)
     max_t = data_frame[["Year","Max Temperature"]].groupby("Year",as_index=False).mean()
     plt.plot(max_t["Year"], max_t["Max Temperature"], "r-", label="T-Max")
     plt.plot(max_t["Year"], max_t["Max Temperature"], "ro")
@@ -56,7 +52,9 @@ def graficar_temp_max(data_frame):
 
 def main():
     data_frame = pd.read_csv("weather.csv",index_col=False) #abre el archivo csv como data frame de pandas, 'index_col=False saca el primer index vacio de la primera fila'
-    print("[1] Tempeturas promedio de los ultimos 5 años\n \
+    data_frame["Year"] = data_frame["Date"].apply(lambda x: x[-4:]) #apply le pasas una funcion y le ejecuta a cada elemento de la columna. (es un map pero para cada fila)
+    print(
+    "     [1] Tempeturas promedio de los ultimos 5 años\n \
     [2] Humedad promedio de los ultimos 5 años\n \
     [3] Milímetros máximos de lluvia de los ultimos 5 años\n \
     [4] Temperatura máxima de los ultimos 5 años\n")
