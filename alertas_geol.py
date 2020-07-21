@@ -14,7 +14,7 @@ def imprimir_alertas(provincia, avisos, alertas):
             print(f"la ubicacion '{provincia} no sufre ninguna alerta'")
 
 
-def mostrar_alertas_puntuales():
+def mostrar_alertas_puntuales(): #Main, aca hay que pasarle las coordenadas actuales como argumentos
     with urlopen("https://ws.smn.gob.ar/alerts/type/AC") as response_avisos:
         avisos_source = response_avisos.read()  # convierto a bytes lo obtenido en response a un str
     avisos = json.loads(avisos_source) #LA PAGINA DE MIERDA DEVUELVE COSAS CUANDO SE LE CANTA (SUELE TIRAR [])
