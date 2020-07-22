@@ -40,6 +40,19 @@ def mostrar_pronostico(pronostico, ubicacion):
             print(".Temperatura en la tarde: ", zona['weather']['afternoon_temp'], "°C")
             print(".Pronostico de la tarde: ", zona['weather']['afternoon_desc'].replace(".",".\n"))
 
+def mostrar_alertas(alertas, provincia, ciudad):
+    lista_alertas = []
+    for dicc in alertas:
+        for ubicacion in dicc["zones"]:
+            if provincia in eliminar_tildes(dicc["zones"][ubicacion].lower()):
+                lista_alertas.append(dicc["title"])
+
+    if len(lista_alertas)>=1:
+        lista_alertas.append("Fuertes lloviznas")
+        print(f"\nLas alertas en {ciudad.capitalize()}, {provincia.capitalize()} son: {', '.join(lista_alertas)}")
+    else:
+        print(f"\n{ciudad.capitalize()}, {provincia.capitalize()} no sufre ninguna alerta")
+                  
 def pronostico_extendido(): #main
     with urlopen("https://ws.smn.gob.ar/map_items/forecast/1") as page:
         source = page.read()
@@ -50,6 +63,9 @@ def pronostico_extendido(): #main
     with urlopen("https://ws.smn.gob.ar/map_items/forecast/3") as page:
         source = page.read()
     tres_dias = json.loads(source)
+    with urlopen("https://ws.smn.gob.ar/alerts/type/AL") as page:
+        source = page.read()
+    alertas = json.loads(source)
     
     ciudad = input("Ingrese ciudad: ")
     provincia = input("Ingrese provincia: ")
@@ -60,7 +76,7 @@ def pronostico_extendido(): #main
     mostrar_pronostico(un_dia, ubicacion)
     mostrar_pronostico(dos_dias, ubicacion)
     mostrar_pronostico(tres_dias, ubicacion)
-    
-   opcion = input("Para volver al menu principal ingrese 0, para salir presione enter: ")
+    mostrar_alertas(alertas, eliminar_tildes(provincia.lower()), eliminar_tildes(ciudad.lower()))
+    opcion = input("\nPara volver al menu principal ingrese 0, para salir presione enter: ")
 
 pronostico_extendido()
