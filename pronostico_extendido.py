@@ -78,4 +78,3 @@ def pronostico_extendido(): #main
     mostrar_alertas(alertas, eliminar_tildes(provincia.lower()), eliminar_tildes(ciudad.lower()))
     opcion = input("\nPara volver al menu principal ingrese 0, para salir presione enter: ")
 
-pronostico_extendido()
