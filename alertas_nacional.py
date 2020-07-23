@@ -14,7 +14,3 @@ def alertas_nacional(): #main
         for zona in datos['zones'].values():
             print('Zona: ', zona)
         print('\n----------------------------\n')
-    
-    opcion = input("Para volver al menu principal ingrese 0, para salir presione enter: ")
-
-alertas_nacional()
