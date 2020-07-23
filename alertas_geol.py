@@ -267,4 +267,4 @@ def mostrar_alertas_puntuales(lat , lon): #main
     coordenadas = ubicador(lat, lon, ubicacion[1])
     imprimir_alertas(ubicacion, coordenadas, alertas)
 
-mostrar_alertas_puntuales()
+
