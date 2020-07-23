@@ -76,5 +76,4 @@ def pronostico_extendido(): #main
     mostrar_pronostico(dos_dias, ubicacion)
     mostrar_pronostico(tres_dias, ubicacion)
     mostrar_alertas(alertas, eliminar_tildes(provincia.lower()), eliminar_tildes(ciudad.lower()))
-    opcion = input("\nPara volver al menu principal ingrese 0, para salir presione enter: ")
 
