@@ -9,7 +9,7 @@ def menu():
     lat = round(float(input("\nIngrese la latitud en la que se encuentra: ")))
     lon = round(float(input("\nIngrese la longitud en la que se encuentra: ")))
     while terminar_programa == False:    
-        print("----MENU PRINCIPAL----")
+        print("\n----MENU PRINCIPAL----")
         opciones_principales = "\n1) Alertas." \
                              "\n2) Histórico de temperaturas y humedad de la zona fértil y productora de la Argentina." \
                              "\n3) Pronóstico extendido." \
@@ -38,7 +38,7 @@ def menu():
             if eleccion_alertas == "1":
                 alertas_geol.mostrar_alertas_puntuales(lat , lon)
             elif eleccion_alertas == "2":
-                alertas_nacional.analisis_nacional()
+                alertas_nacional.alertas_nacional()
                 
             print("\n¿Desea volver al menu principal o terminar el programa?")
             continuar = input("\n1) Volver al menu principal.\n2)Terminar el programa.\nIngrese el numero de la opcion que desea: ")
