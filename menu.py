@@ -6,9 +6,10 @@ import pronostico_extendido
 
 def menu():
     terminar_programa = False
-
     while terminar_programa == False:    
         print("----MENU PRINCIPAL----")
+        lat = round(float(input("\nIngrese la latitud en la que se encuentra: ")))
+        lon = round(float(input("\nIngrese la longitud en la que se encuentra: ")))
         opciones_principales = "\n1) Alertas." \
                              "\n2) Histórico de temperaturas y humedad de la zona fértil y productora de la Argentina." \
                              "\n3) Pronóstico extendido." \
