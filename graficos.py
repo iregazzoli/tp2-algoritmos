@@ -50,7 +50,7 @@ def graficar_temp_max(data_frame):
     plt.show()
 
 
-def main():
+def graficador_main():
     data_frame = pd.read_csv("weather.csv",index_col=False) #abre el archivo csv como data frame de pandas, 'index_col=False saca el primer index vacio de la primera fila'
     data_frame["Year"] = data_frame["Date"].apply(lambda x: x[-4:]) #apply le pasas una funcion y le ejecuta a cada elemento de la columna. (es un map pero para cada fila)
     print(
@@ -72,4 +72,4 @@ def main():
 
 
 
-main()
+graficador_main()
