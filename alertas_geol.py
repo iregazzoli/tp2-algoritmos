@@ -258,7 +258,7 @@ def mostrar_alertas_puntuales(lat , lon): #main
         alertas_source = response_alertas.read()  # convierto a bytes lo obtenido en response a un str,
     alertas = json.loads(alertas_source)
     opcion_usuario = input("\nDesea usar la geolocalizacion actual? ('si'/'no')?:")
-    while opcion_usuario != "si" or opcion_usuario != "no":
+    while opcion_usuario != "si" and opcion_usuario != "no":
         opcion_usuario = input("\nLa opcion ingresada no es valida, ingrese una nueva:")
     if opcion_usuario == "no":
         lat = round(float(input("\nIngrese la latitud deseada: ")))
