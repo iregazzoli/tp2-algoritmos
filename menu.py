@@ -1,3 +1,9 @@
+import alertas_geol
+import alertas_nacional
+import analisis_imagenes
+import graficos
+import pronostico_extendido
+
 def menu():
     terminar_programa = False
 
@@ -29,9 +35,9 @@ def menu():
                 eleccion_alertas = input("\nIngrese el número de la opción que desea: ")
 
             if eleccion_alertas == "1":
-                print("funcion")
+                alertas_geol.mostrar_alertas_puntuales(lat , lon)
             elif eleccion_alertas == "2":
-                print("funcion")
+                alertas_nacional.analisis_nacional()
                 
             print("\n¿Desea volver al menu principal o terminar el programa?")
             continuar = input("\n1) Volver al menu principal.\n2)Terminar el programa.\nIngrese el numero de la opcion que desea: ")
@@ -45,7 +51,8 @@ def menu():
                 terminar_programa = True    
 
         elif eleccion == "2":
-       
+            graficos.graficador()
+            
             print("\n¿Desea volver al menu principal o terminar el programa?")
             continuar = input("\n1) Volver al menu principal.\n2)Terminar el programa.\nIngrese el numero de la opcion que desea: ")
             if continuar != "1" and continuar != "2":
@@ -58,6 +65,8 @@ def menu():
                 terminar_programa = True                
         
         elif eleccion == "3":
+            pronostico_extendido.pronostico_extendido()
+
             print("hay que hacer algo")
             print("\n¿Desea volver al menu principal o terminar el programa?")
             continuar = input("\n1) Volver al menu principal.\n2)Terminar el programa.\nIngrese el numero de la opcion que desea: ")
@@ -74,7 +83,8 @@ def menu():
                 terminar_programa = True
 
         elif eleccion == "4":
-            analisis_imagenes.analisis_imagen()
+            analisis_imagenes.analizar_imagen()
+            
             print("\n¿Desea volver al menu principal o terminar el programa?")
             continuar = input("\n1) Volver al menu principal.\n2)Terminar el programa.\nIngrese el numero de la opcion que desea: ")
             if continuar != "1" and continuar != "2":
