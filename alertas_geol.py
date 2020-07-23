@@ -17,6 +17,8 @@ def coordenadas_a_provincia(actual, lat, lon):
     return ubicacion
 
 def ubicador(lat, long, province):
+    lat_en_provincia = None
+    long_en_provincia = None
     if province == "Jujuy":
         if -23 <= lat <= -22:
             lat_en_provincia = "norte"
@@ -122,9 +124,9 @@ def ubicador(lat, long, province):
         elif -41 < lat < -36 :
             lat_en_provincia = "sur"
         if -60 < long < -56:
-            long_en_provincia = "oeste"
-        elif -64 < long < -60:
             long_en_provincia = "este"
+        elif -64 < long < -60:
+            long_en_provincia = "oeste"
 
     elif province == "La Pampa":
         if -39 < lat < -36:
@@ -132,9 +134,9 @@ def ubicador(lat, long, province):
         elif -41 < lat < -39 :
             lat_en_provincia = "sur"
         if -66 < long < -63:
-            long_en_provincia = "oeste"
-        elif -68 < long < -66:
             long_en_provincia = "este"
+        elif -68 < long < -66:
+            long_en_provincia = "oeste"
 
     elif province == "Neuquén":
         if -37 < lat < -34:
@@ -142,9 +144,9 @@ def ubicador(lat, long, province):
         elif -39 < lat < -37 :
             lat_en_provincia = "sur"
         if -70 < long < -67:
-            long_en_provincia = "oeste"
-        elif -72 < long < -70:
             long_en_provincia = "este"
+        elif -72 < long < -70:
+            long_en_provincia = "oeste"
 
     elif province == "Río Negro":
         if -40 < lat < -38:
@@ -152,9 +154,9 @@ def ubicador(lat, long, province):
         elif -42 < lat < -40 :
             lat_en_provincia = "sur"
         if -67 < long < -62:
-            long_en_provincia = "oeste"
-        elif -72 < long < -67:
             long_en_provincia = "este"
+        elif -72 < long < -67:
+            long_en_provincia = "oeste"
 
     elif province == "Chubut":
         if -44 < lat < -42:
@@ -162,9 +164,9 @@ def ubicador(lat, long, province):
         elif -46 < lat < -44 :
             lat_en_provincia = "sur"
         if -69 < long < -63:
-            long_en_provincia = "oeste"
-        elif -73 < long < -69:
             long_en_provincia = "este"
+        elif -73 < long < -69:
+            long_en_provincia = "oeste"
 
     elif province == "Santa Cruz":
         if -49 < lat < -46:
@@ -172,9 +174,9 @@ def ubicador(lat, long, province):
         elif -53 < lat < -49 :
             lat_en_provincia = "sur"
         if -70 < long < -65:
-            long_en_provincia = "oeste"
-        elif -74 < long < -70:
             long_en_provincia = "este"
+        elif -74 < long < -70:
+            long_en_provincia = "oeste"
 
     elif province == "Tierra del Fuego, Antártida e Islas del Atlántico Sur":
         if -54 < lat < -53:
@@ -182,9 +184,9 @@ def ubicador(lat, long, province):
         elif -56 < lat < -54 :
             lat_en_provincia = "sur"
         if -67 < long < -64:
-            long_en_provincia = "oeste"
-        elif -69 < long < -67:
             long_en_provincia = "este"
+        elif -69 < long < -67:
+            long_en_provincia = "oeste"
 
     elif province == "Mendoza":
         if -35 < lat < -31:
@@ -192,9 +194,9 @@ def ubicador(lat, long, province):
         elif -37 < lat < -35 :
             lat_en_provincia = "sur"
         if -68 < long < -66:
-            long_en_provincia = "oeste"
-        elif -71 < long < -68:
             long_en_provincia = "este"
+        elif -71 < long < -68:
+            long_en_provincia = "oeste"
 
     elif province == "San Luis":
         if -34 < lat < -32:
@@ -202,9 +204,9 @@ def ubicador(lat, long, province):
         elif -36 < lat < -34 :
             lat_en_provincia = "sur"
         if -66 < long < -64:
-            long_en_provincia = "oeste"
-        elif -68 < long < -66:
             long_en_provincia = "este"
+        elif -68 < long < -66:
+            long_en_provincia = "oeste"
 
     elif province == "Córdoba":
         if -32 < lat < -29:
@@ -212,9 +214,9 @@ def ubicador(lat, long, province):
         elif -35 < lat < -32 :
             lat_en_provincia = "sur"
         if -64 < long < -61:
-            long_en_provincia = "oeste"
-        elif -66 < long < -64:
             long_en_provincia = "este"
+        elif -66 < long < -64:
+            long_en_provincia = "oeste"
 
     elif province == "Santa Fe":
         if -31 < lat < -27:
@@ -222,9 +224,9 @@ def ubicador(lat, long, province):
         elif -35 < lat < -31 :
             lat_en_provincia = "sur"
         if -61 < long < -59:
-            long_en_provincia = "oeste"
-        elif -63 < long < -61:
             long_en_provincia = "este"
+        elif -63 < long < -61:
+            long_en_provincia = "oeste"
 
     elif province == "Entre Ríos":
         if -32 < lat < -29:
@@ -232,9 +234,9 @@ def ubicador(lat, long, province):
         elif -34 < lat < -32 :
             lat_en_provincia = "sur"
         if -59 < long < -57:
-            long_en_provincia = "oeste"
-        elif -61 < long < -59:
             long_en_provincia = "este"
+        elif -61 < long < -59:
+            long_en_provincia = "oeste"
     return[lat_en_provincia, long_en_provincia]
 
 def imprimir_alertas(ubicacion, coordenadas, alertas):
