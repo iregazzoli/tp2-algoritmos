@@ -1,4 +1,4 @@
-# Aclaraciones para el uso coorecto del programa:
+# Aclaraciones para el uso correcto del programa:
 # - Tanto las imagenes de radar que se desean escanear, como el archivos csv que contiene la informacion de lo últimos 5 años DEBEN estar en la misma carpeta en donde está el 
 #   archivo Tormenta.py
 # - Se debe de tener instaladas las librerias: csv, json, pandas, matplotlib.pyplot, urllib.request, opencv .
