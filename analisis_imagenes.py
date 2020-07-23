@@ -60,7 +60,7 @@ def detectar_rosa(imagen, imagen_hsv):
     elif cv2.countNonZero(mascara) == 0:
         return "no_rosa"
 
-def analisis_imagen(): #main
+def analizar_imagen(): #main
     nombre_imagen = input("\nIngrese el nombre del archivo de imagen: ")
     
     if ".png" not in nombre_imagen:
