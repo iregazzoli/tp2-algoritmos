@@ -24,7 +24,7 @@ def menu():
             eleccion = input("\nIngrese el número de la opción que desea: ")
 
         if eleccion == "1":
-            opciones_alerta = "\n1) Alertas en base a una geolocalización."
+            opciones_alerta = "\n1) Alertas en base a una geolocalización." \
                             "\n2) Alertas a nivel nacional." \
 
             print(opciones_alerta)                
