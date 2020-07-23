@@ -257,12 +257,12 @@ def mostrar_alertas_puntuales(lat , lon): #main
     with urlopen("https://ws.smn.gob.ar/alerts/type/AL") as response_alertas:
         alertas_source = response_alertas.read()  # convierto a bytes lo obtenido en response a un str,
     alertas = json.loads(alertas_source)
-    opcion_usuario = input("Desea usar la geolocalizacion actual? ('si'/'no')?:")
+    opcion_usuario = input("\nDesea usar la geolocalizacion actual? ('si'/'no')?:")
     while opcion_usuario != "si" or opcion_usuario != "no":
-        opcion_usuario = input("La opcion ingresada no es valida, ingrese una nueva:")
+        opcion_usuario = input("\nLa opcion ingresada no es valida, ingrese una nueva:")
     if opcion_usuario == "no":
-        lat = round(float(input("Ingrese la latitud deseada: ")))
-        lon = round(float(input("Ingrese la longitud deseada: ")))
+        lat = round(float(input("\nIngrese la latitud deseada: ")))
+        lon = round(float(input("\nIngrese la longitud deseada: ")))
     ubicacion = coordenadas_a_provincia(estado_actual, lat, lon)
     coordenadas = ubicador(lat, lon, ubicacion[1])
     imprimir_alertas(ubicacion, coordenadas, alertas)
