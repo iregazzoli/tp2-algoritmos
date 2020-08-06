@@ -22,36 +22,37 @@ def alertas_nacional():
 def ingresar_lat_long():  # toda esta funcion se puede reestructurar con un loop for pero la deje asi por claridad
     # debido que no consume muchos recursos ni son tantas lineas de codigo
     negative = False
+    input_invalido = False
     lat = input("Ingrese la latitud deseada: ")
     if "-" in lat:  # todo este baile con lo del negativo es pq "-" no es un caracter numerico, si bien La Arg toda
         # lat/lon es negativa, de esta manera se  podria implementar para paises en los que necesariamente no sea asi.
         lat = lat.lstrip('-')
         negative = True
-    while not lat.isnumeric():
-        print(f"{lat} no es un valor valido reintentelo:")
-        lat = input("Ingrese la latitud deseada: ")
-        if "-" in lat:
-            lat = lat.lstrip('-')
-            negative = True
-        
-    if negative:
-        lat = "-" + lat
-    lat = round(float(lat))
-
+    while not input_invalido:
+        try:
+            float(lat)
+            input_invalido = True
+            if negative:
+                lat = "-" + lat
+            lat = round(float(lat))
+        except ValueError:
+            print(f"{lat} no es un valor valido reintentelo:")
     negative = False
+    input_invalido = False
     lon = input("Ingrese la longitud deseada: ")
     if "-" in lon:
         lon = lon.lstrip('-')
         negative = True
-    while not lon.isnumeric():
-        print(f"{lon} no es un valor valido reintentelo:")
-        lon = input("Ingrese la longitud deseada: ")
-        if "-" in lon:
-            lon = lon.lstrip('-')
-            negative = True
-    if negative:
-        lon = "-" + lon
-    lon = round(float(lon))
+    while not input_invalido:
+        try:
+            float(lon)
+            input_invalido = True
+            if negative:
+                lon = "-" + lon
+            lon = round(float(lon))
+        except ValueError:
+            print(f"{lon} no es un valor valido reintentelo:")
+    print(lat, lon)
     return [lat, lon]
 
 
