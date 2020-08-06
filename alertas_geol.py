@@ -127,10 +127,8 @@ def mostrar_alertas_puntuales(lat, lon):  # main
             opcion_usuario = input("\nLa opcion ingresada no es valida, ingrese una nueva:")
         if opcion_usuario == "no":
             lat_lon = ingresar_lat_long()
-            print(type(lat_lon))
             lat = lat_lon[0]
-            lon = lat_lon[1]
-            print(lat, lon)
+            lon = lat_lon[1]             
         ubicacion = coordenadas_a_provincia(informacion_de_provincias, lat, lon)
         lat = ubicacion[2]
         lon = ubicacion[3]
