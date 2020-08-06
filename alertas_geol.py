@@ -77,7 +77,7 @@ def ubicador(lat, long, user_province):
     long_en_provincia = None
     print([lat, long, user_province])
     try:
-        with open('Provincias_secciones.csv', 'r') as provincias_csv:
+        with open('Provincias_secciones.csv', 'r', encoding = "ISO-8859-1") as provincias_csv:
             provincias = csv.reader(provincias_csv)
             for provincia in provincias:
                 if user_province == provincia[0]:
@@ -128,7 +128,7 @@ def mostrar_alertas_puntuales(lat, lon):  # main
         if opcion_usuario == "no":
             lat_lon = ingresar_lat_long()
             lat = lat_lon[0]
-            lon = lat_lon[1]             
+            lon = lat_lon[1]
         ubicacion = coordenadas_a_provincia(informacion_de_provincias, lat, lon)
         lat = ubicacion[2]
         lon = ubicacion[3]
@@ -139,4 +139,3 @@ def mostrar_alertas_puntuales(lat, lon):  # main
         print("Checke su conexion a internet por favor, el programa tormenta.py necesita de internet para funcionar,"
               "si su conexion a internet esta funcionando puede ser que el servidor del servicio meteorologico de la "
               "ciudad este teniendo problemas, en tal caso intente más tarde.")
-
