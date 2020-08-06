@@ -5,6 +5,20 @@ import urllib.error
 from urllib.request import urlopen  # recheckear esto
 
 
+def alertas_nacional():
+    """Muestra todas las alertas existentes a nivel nacional"""
+    with urlopen("https://ws.smn.gob.ar/alerts/type/AL") as page:
+        source = page.read()
+    alertas = json.loads(source)
+
+    for datos in alertas:
+        print('Tipo de alerta: ', datos['title'], '\n')
+        print('Descripcion: ', datos['description'].replace(".", ".\n"))
+        for zona in datos['zones'].values():
+            print('Zona: ', zona)
+        print('\n----------------------------\n')
+
+
 def ingresar_lat_long():  # toda esta funcion se puede reestructurar con un loop for pero la deje asi por claridad
     # debido que no consume muchos recursos ni son tantas lineas de codigo
     negative = False
@@ -97,18 +111,6 @@ def imprimir_alertas(ubicacion, coordenadas, alertas):
     else:
         print(f"\nLa geolocalizacion {ubicacion[0]} no sufre ninguna alerta")
 
-def alertas_nacional():
-    """Muestra todas las alertas existentes a nivel nacional"""
-    with urlopen("https://ws.smn.gob.ar/alerts/type/AL") as page:
-        source = page.read()
-    alertas = json.loads(source)
-
-    for datos in alertas:
-        print('Tipo de alerta: ', datos['title'], '\n')
-        print('Descripcion: ', datos['description'].replace(".",".\n"))
-        for zona in datos['zones'].values():
-            print('Zona: ', zona)
-        print('\n----------------------------\n')
 
 def mostrar_alertas_puntuales(lat, lon):  # main
     try:
