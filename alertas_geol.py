@@ -98,6 +98,19 @@ def imprimir_alertas(ubicacion, coordenadas, alertas):
     else:
         print(f"\nLa geolocalizacion {ubicacion[0]} no sufre ninguna alerta")
 
+def alertas_nacional():
+     '''Muestra todas las alertas existentes a nivel nacional.
+    '''
+    with urlopen("https://ws.smn.gob.ar/alerts/type/AL") as page:
+        source = page.read()
+    alertas = json.loads(source)
+
+    for datos in alertas:
+        print('Tipo de alerta: ', datos['title'], '\n')
+        print('Descripcion: ', datos['description'].replace(".",".\n"))
+        for zona in datos['zones'].values():
+            print('Zona: ', zona)
+        print('\n----------------------------\n')
 
 def mostrar_alertas_puntuales(lat, lon):  # main
     try:
@@ -123,6 +136,7 @@ def mostrar_alertas_puntuales(lat, lon):  # main
         lon = ubicacion[3]
         coordenadas = ubicador(lat, lon, ubicacion[1])
         imprimir_alertas(ubicacion, coordenadas, alertas)
+
     except urllib.error.URLError or socket.gaierror:
         print("Checke su conexion a internet por favor, el programa tormenta.py necesita de internet para funcionar,"
               "si su conexion a internet esta funcionando puede ser que el servidor del servicio meteorologico de la "
