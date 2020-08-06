@@ -30,6 +30,10 @@ def ingresar_lat_long():  # toda esta funcion se puede reestructurar con un loop
     while not lat.isnumeric():
         print(f"{lat} no es un valor valido reintentelo:")
         lat = input("Ingrese la latitud deseada: ")
+        if "-" in lat:
+            lat = lat.lstrip('-')
+            negative = True
+        
     if negative:
         lat = "-" + lat
     lat = round(float(lat))
@@ -42,6 +46,9 @@ def ingresar_lat_long():  # toda esta funcion se puede reestructurar con un loop
     while not lon.isnumeric():
         print(f"{lon} no es un valor valido reintentelo:")
         lon = input("Ingrese la longitud deseada: ")
+        if "-" in lon:
+            lon = lon.lstrip('-')
+            negative = True
     if negative:
         lon = "-" + lon
     lon = round(float(lon))
