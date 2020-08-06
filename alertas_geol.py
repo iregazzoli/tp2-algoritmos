@@ -52,7 +52,6 @@ def ingresar_lat_long():  # toda esta funcion se puede reestructurar con un loop
             lon = round(float(lon))
         except ValueError:
             print(f"{lon} no es un valor valido reintentelo:")
-    print(lat, lon)
     return [lat, lon]
 
 
