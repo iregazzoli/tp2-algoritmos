@@ -5,8 +5,8 @@ import pronostico_extendido
 
 def main():
     terminar_programa = False
-    lat = round(float(input("\nIngrese la latitud en la que se encuentra: ")))
-    lon = round(float(input("\nIngrese la longitud en la que se encuentra: ")))
+    print("A continuación ingrese la latitud y longitud de su ubicación actual.")
+    alertas_geol.ingresar_lat_long()
     while terminar_programa == False:    
         print("\n----MENU PRINCIPAL----")
         opciones_principales = "\n1) Alertas." \
