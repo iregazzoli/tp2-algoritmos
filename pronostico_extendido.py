@@ -1,3 +1,4 @@
+import urllib
 import json
 from urllib.request import urlopen
 
@@ -16,12 +17,12 @@ def comprobar_datos(pronostico, ubicacion):
     . En caso de existir esa ubicacion, la retorna.
     '''
     continuar = True
-    while continuar == True:
+    while continuar:
         for zona in pronostico:
             if eliminar_tildes(zona['name'].lower()) in ubicacion[0] and eliminar_tildes(zona['province'].lower()) in ubicacion[1]:
                 continuar = False
         
-        if continuar == True:
+        if continuar:
             print("Los datos ingresados no son validos, ingrese nuevamente")
             ciudad = input("Ingrese ciudad: ")
             provincia = input("Ingrese provincia: ")
@@ -53,27 +54,31 @@ def mostrar_alertas(alertas, provincia, ciudad):
         print(f"\n{ciudad.capitalize()}, {provincia.capitalize()} no sufre ninguna alerta")
                   
 def pronostico_extendido(): #main
-    with urlopen("https://ws.smn.gob.ar/map_items/forecast/1") as page:
-        source = page.read()
-    un_dia = json.loads(source)
-    with urlopen("https://ws.smn.gob.ar/map_items/forecast/2") as page:
-        source = page.read()
-    dos_dias = json.loads(source)
-    with urlopen("https://ws.smn.gob.ar/map_items/forecast/3") as page:
-        source = page.read()
-    tres_dias = json.loads(source)
-    with urlopen("https://ws.smn.gob.ar/alerts/type/AL") as page:
-        source = page.read()
-    alertas = json.loads(source)
-    
-    ciudad = input("Ingrese ciudad: ")
-    provincia = input("Ingrese provincia: ")
-    ubicacion = [eliminar_tildes(ciudad.lower()), eliminar_tildes(provincia.lower())]
-    ubicacion = comprobar_datos(un_dia, ubicacion)
-    
-    print("")
-    mostrar_pronostico(un_dia, ubicacion)
-    mostrar_pronostico(dos_dias, ubicacion)
-    mostrar_pronostico(tres_dias, ubicacion)
-    mostrar_alertas(alertas, eliminar_tildes(provincia.lower()), eliminar_tildes(ciudad.lower()))
+    try:
+        with urlopen("https://ws.smn.gob.ar/map_items/forecast/1") as page:
+            source = page.read()
+        un_dia = json.loads(source)
+        with urlopen("https://ws.smn.gob.ar/map_items/forecast/2") as page:
+            source = page.read()
+        dos_dias = json.loads(source)
+        with urlopen("https://ws.smn.gob.ar/map_items/forecast/3") as page:
+            source = page.read()
+        tres_dias = json.loads(source)
+        with urlopen("https://ws.smn.gob.ar/alerts/type/AL") as page:
+            source = page.read()
+        alertas = json.loads(source)
 
+        ciudad = input("Ingrese ciudad: ")
+        provincia = input("Ingrese provincia: ")
+        ubicacion = [eliminar_tildes(ciudad.lower()), eliminar_tildes(provincia.lower())]
+        ubicacion = comprobar_datos(un_dia, ubicacion)
+
+        print("")
+        mostrar_pronostico(un_dia, ubicacion)
+        mostrar_pronostico(dos_dias, ubicacion)
+        mostrar_pronostico(tres_dias, ubicacion)
+        mostrar_alertas(alertas, eliminar_tildes(provincia.lower()), eliminar_tildes(ciudad.lower()))
+    except urllib.error.URLError or socket.gaierror:
+        print("Checke su conexion a internet por favor, el programa tormenta.py necesita de internet para funcionar,"
+              "si su conexion a internet esta funcionando puede ser que el servidor del servicio meteorologico de la "
+              "ciudad este teniendo problemas, en tal caso intente más tarde.")
