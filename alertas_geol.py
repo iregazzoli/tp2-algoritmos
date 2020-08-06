@@ -1,8 +1,7 @@
 # Por favor reestructuren esto, las "configuraciones" globales de latitud y longitud son irrelevantes (tormenta.py)
-
-import urllib
 import json
 import csv
+import urllib.error
 from urllib.request import urlopen  # recheckear esto
 
 
