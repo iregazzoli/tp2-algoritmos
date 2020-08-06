@@ -1,10 +1,9 @@
 import alertas_geol
-import alertas_nacional
 import analisis_imagenes
 import graficos
 import pronostico_extendido
 
-def menu():
+def main():
     terminar_programa = False
     lat = round(float(input("\nIngrese la latitud en la que se encuentra: ")))
     lon = round(float(input("\nIngrese la longitud en la que se encuentra: ")))
@@ -38,7 +37,7 @@ def menu():
             if eleccion_alertas == "1":
                 alertas_geol.mostrar_alertas_puntuales(lat , lon)
             elif eleccion_alertas == "2":
-                alertas_nacional.alertas_nacional()
+                alertas_geol.alertas_nacional()
                 
             print("\n¿Desea volver al menu principal o terminar el programa?")
             continuar = input("\n1) Volver al menu principal.\n2)Terminar el programa.\nIngrese el numero de la opcion que desea: ")
@@ -101,8 +100,6 @@ def menu():
             print("\nPrograma terminado.\n¡Adios!")
             terminar_programa = True    
 
-def main():
-    menu()
 
 main()    
    
