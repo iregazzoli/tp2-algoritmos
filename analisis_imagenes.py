@@ -52,8 +52,7 @@ def analizar_imagen(): #main
         
         mostrar_alertas(rojo,verde,azul,amarillo,rosa)
 
-    except cv2.error :
+    except cv2.error or FileNotFoundError:
         print("\nEl archivo no existe o no se encuentra en la misma carpeta que Tormenta.py.")     
         print("\nGuarde el archivo .png en la misma carpeta que Tormenta.py y reinicie el programa.")
-
 
