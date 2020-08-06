@@ -6,8 +6,10 @@ import pronostico_extendido
 def main():
     terminar_programa = False
     print("A continuación ingrese la latitud y longitud de su ubicación actual.")
-    alertas_geol.ingresar_lat_long()
-    while terminar_programa == False:    
+    lat_lon = alertas_geol.ingresar_lat_long()
+    lat = lat_lon[0]
+    lon = lat_lon[1]
+    while terminar_programa == False:
         print("\n----MENU PRINCIPAL----")
         opciones_principales = "\n1) Alertas." \
                              "\n2) Histórico de temperaturas y humedad de la zona fértil y productora de la Argentina." \
@@ -26,9 +28,9 @@ def main():
             opciones_alerta = "\n1) Alertas en base a una geolocalización." \
                             "\n2) Alertas a nivel nacional." \
 
-            print(opciones_alerta)                
+            print(opciones_alerta)
             eleccion_alertas = input("\nIngrese el número de la opción que desea: ")
-            
+
             while(eleccion_alertas != "1" and eleccion_alertas != "2"):
                 print(f'\n¡Error!, la opción "{eleccion_alertas}" no es válida. Intente nuevamente')
                 print(opciones_alerta)
@@ -38,32 +40,32 @@ def main():
                 alertas_geol.mostrar_alertas_puntuales(lat , lon)
             elif eleccion_alertas == "2":
                 alertas_geol.alertas_nacional()
-                
+
             print("\n¿Desea volver al menu principal o terminar el programa?")
             continuar = input("\n1) Volver al menu principal.\n2)Terminar el programa.\nIngrese el numero de la opcion que desea: ")
             if continuar != "1" and continuar != "2":
-                 print(f'\n¡Error!, la opción "{continuar}" no es válida. Intente nuevamente.')  
+                 print(f'\n¡Error!, la opción "{continuar}" no es válida. Intente nuevamente.')
                  continuar = input("\n1) Volver al menu principal.\n2)Terminar el programa.\nIngrese el numero de la opcion que desea: ")
             if continuar == "1":
                 terminar_programa = False
             elif continuar == "2":
                 print("\nPrograma terminado.\n¡Adios!")
-                terminar_programa = True    
+                terminar_programa = True
 
         elif eleccion == "2":
             graficos.graficador()
-            
+
             print("\n¿Desea volver al menu principal o terminar el programa?")
             continuar = input("\n1) Volver al menu principal.\n2)Terminar el programa.\nIngrese el numero de la opcion que desea: ")
             if continuar != "1" and continuar != "2":
-                 print(f'\n¡Error!, la opción "{continuar}" no es válida. Intente nuevamente.')  
+                 print(f'\n¡Error!, la opción "{continuar}" no es válida. Intente nuevamente.')
                  continuar = input("\n1) Volver al menu principal.\n2)Terminar el programa.\nIngrese el numero de la opcion que desea: ")
             if continuar == "1":
                 terminar_programa = False
             elif continuar == "2":
                 print("\nPrograma terminado.\n¡Adios!")
-                terminar_programa = True                
-        
+                terminar_programa = True
+
         elif eleccion == "3":
             pronostico_extendido.pronostico_extendido()
 
@@ -71,7 +73,7 @@ def main():
             print("\n¿Desea volver al menu principal o terminar el programa?")
             continuar = input("\n1) Volver al menu principal.\n2)Terminar el programa.\nIngrese el numero de la opcion que desea: ")
             if continuar != "1" and continuar != "2":
-                 print(f'\n¡Error!, la opción "{continuar}" no es válida. Intente nuevamente.')  
+                 print(f'\n¡Error!, la opción "{continuar}" no es válida. Intente nuevamente.')
                  continuar = input("\n1) Volver al menu principal.\n2)Terminar el programa.\nIngrese el numero de la opcion que desea: ")
             if continuar == "1":
                 terminar_programa = False
@@ -84,22 +86,21 @@ def main():
 
         elif eleccion == "4":
             analisis_imagenes.analizar_imagen()
-            
+
             print("\n¿Desea volver al menu principal o terminar el programa?")
             continuar = input("\n1) Volver al menu principal.\n2)Terminar el programa.\nIngrese el numero de la opcion que desea: ")
             if continuar != "1" and continuar != "2":
-                 print(f'\n¡Error!, la opción "{continuar}" no es válida. Intente nuevamente.')  
+                 print(f'\n¡Error!, la opción "{continuar}" no es válida. Intente nuevamente.')
                  continuar = input("\n1) Volver al menu principal.\n2)Terminar el programa.\nIngrese el numero de la opcion que desea: ")
             if continuar == "1":
                 terminar_programa = False
             elif continuar == "2":
                 print("\nPrograma terminado.\n¡Adios!")
                 terminar_programa = True
-            
+
         elif eleccion == "5":
             print("\nPrograma terminado.\n¡Adios!")
-            terminar_programa = True    
+            terminar_programa = True
 
 
-main()    
-   
+main()
